@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <title>TikTok OAuth Callback - Lookinon Auto Post</title>
+<style>
+body { font-family: sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; }
+code { background: #eee; padding: 12px; display: block; word-break: break-all; border-radius: 6px; }
+  button { margin-top: 12px; padding: 8px 16px; cursor: pointer; }
+</style>
+  </head>
+  <body>
+  <h1>TikTok Authorization Complete</h1>
+<p>Copy the authorization code below and paste it back into the terminal.</p>
+  <p><strong>code:</strong></p>
+  <code id="code">(reading...)</code>
+  <button onclick="copyCode()">Copy code</button>
+  <p><strong>state:</strong></p>
+  <code id="state">(reading...)</code>
+  <script>
+  const params = new URLSearchParams(window.location.search);
+document.getElementById('code').textContent = params.get('code') || '(none found)';
+document.getElementById('state').textContent = params.get('state') || '(none found)';
+function copyCode() {
+    navigator.clipboard.writeText(document.getElementById('code').textContent);
+  alert('Copied!');
+}
+</script>
+  </body>
+  </html>
+  
